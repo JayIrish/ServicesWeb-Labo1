@@ -5,7 +5,7 @@ import bodyParser = require("body-parser");
 import http from "http";
 import path from "path";
 
-import { listeLivresDeAuteur } from "./app/src/serveur/livre/controleurLivre";
+import { listePermisType } from "./app/src/serveur/permis/controleurPermis";
 
 // Création d'un serveur Node dont les requêtes entrantes
 // et sortantes sont gérées par express.
@@ -31,11 +31,11 @@ exp.get("/", async (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname + "/app/src/index.html"));
 });
 
-exp.get("/livre", async (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname + "/app/src/serveur/donnees/livres.json"));
+exp.get("/permis", async (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname + "/app/src/serveur/donnees/permis-animaux.json"));
 });
 
-exp.post("/auteur", async (req: Request, res: Response) => {
-  let listeLivresAuteur = await listeLivresDeAuteur(req);
+exp.post("/typePermis", async (req: Request, res: Response) => {
+  let listeLivresAuteur = await listePermisType(req);
   res.send(listeLivresAuteur);
 });
