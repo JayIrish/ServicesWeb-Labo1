@@ -1,0 +1,23 @@
+{
+  "name": "servicesweb-labo1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch ./ -e ts --exec ts-node ./serveur.ts",
+    "go": "ts-node ./serveur.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayIrish/ServicesWeb-Labo1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayIrish/ServicesWeb-Labo1/issues"
+  },
+  "homepage": "https://github.com/JayIrish/ServicesWeb-Labo1#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
