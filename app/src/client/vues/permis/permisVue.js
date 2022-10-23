@@ -39,7 +39,7 @@ const lister = () => {
 
 const listerPermisType = (listePermisType) => {
     let resultat = construireEntetes();
-    for(let unPermis of listePermistype){
+    for(let unPermis of listePermisType){
         resultat += construireTR(unPermis);
     }
     resultat += "</tbody></table>";

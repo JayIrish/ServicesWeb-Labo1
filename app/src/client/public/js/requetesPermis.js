@@ -15,7 +15,7 @@ const chargerPermisJSON = () => {
     });
 }
 
-let listerParAuteur = () => {
+let listerParType = () => {
     let type = document.getElementById('type').value;
 
     $.ajax({
@@ -24,9 +24,9 @@ let listerParAuteur = () => {
         data:{'typeRecherche': type},
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
-        success: (listeLivresDeAuteur) => {
+        success: (listePermisType) => {
             //alert(reponse);
-             listerLivresAuteur(listeLivresDeAuteur);
+             listerPermisType(listePermisType);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
