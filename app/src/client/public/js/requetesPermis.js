@@ -43,8 +43,29 @@ let listerParTerr = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisTerr) => {
-            console.log(listePermisTerr);
                 listerPermisTerr(listePermisTerr);
+        },
+        fail: (e) => {
+            alert(`Gros probléme : ${e.message}`);
+        }
+    });
+}
+
+let listerParEcheance = () => {
+    let annee = document.getElementById('anneeRecherche').value;
+    let mois = document.getElementById('moisRecherche').value;
+
+    $.ajax({
+        url:"/echeancePermis",
+        type:"POST",
+        data:{
+            'anneeRecherche': annee,
+            'moisRecherche': mois
+        },
+        dataType:'json',  // json, xml, text
+        async: true, // false pour se  mettre en mode synchrone.
+        success: (listePermisEcheance) => {
+                listerPermisEcheance(listePermisEcheance);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);

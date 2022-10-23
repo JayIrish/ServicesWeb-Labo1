@@ -88,19 +88,28 @@ let terrPermis = () => {
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
 //_____________________ ÉCHÉENCE DE PERMIS _____________________________________________________________
+const listerPermisEcheance = (listePermisEcheance) => {
+    let resultat = construireEntetes();
+    for(let unPermis of listePermisEcheance){
+        resultat += construireTR(unPermis);
+    }
+    resultat += "</tbody></table>";
+    document.getElementsByClassName('container')[0].innerHTML = resultat;
+}
+
 let demanderDates = () => {
     let rep = `
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
             <label for="annee" class="form-label">mois d'échéance recherché</label>
-            <input type="text" class="form-control" id="anneeRecherche" name="type" value="" required>
+            <input type="text" class="form-control" id="anneeRecherche" name="anneeRecherche" value="" required>
         </div>
         <div class="col-md-6">
             <label for="annee" class="form-label">mois d'échéance recherché</label>
-            <input type="text" class="form-control" id="moisRecherche" name="type" value="" required>
+            <input type="text" class="form-control" id="moisRecherche" name="moisRecherche" value="" required>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="button" onClick="listerParDate();">Envoyer</button>
+            <button class="btn btn-primary" type="button" onClick="listerParEcheance();">Envoyer</button>
         </div>
     </form>
 `;

@@ -45,3 +45,21 @@ export const listePermisTerr = async (req: Request): Promise<string> => {
   }
   return JSON.stringify(listePermisTerr);
 };
+//_______________________________________________________________________________________
+export const listePermisEcheance = async (req: Request): Promise<string> => {
+  let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
+  let anneeCherche = req.body.anneeRecherche;
+  let moisCherche = req.body.moisRecherche;
+
+  let listePermisEcheance: Array<Permis> = [];
+
+  for (let unPermis of listePermis) {
+    let dateFin: Array<String> = (unPermis.Permis_Date_de_fin).split("-");
+    let annee = dateFin[0];
+    let mois = dateFin[1];
+    if (mois == moisCherche && annee == anneeCherche) {
+      listePermisEcheance.push(unPermis);
+    }
+  }
+  return JSON.stringify(listePermisEcheance);
+};
