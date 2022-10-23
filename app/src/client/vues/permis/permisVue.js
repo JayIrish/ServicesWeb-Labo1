@@ -28,6 +28,7 @@ const construireTR = (unPermis) =>{
     return tr;
 }
 
+//_____________________ TOUS PERMIS __________________________________________________________
 const lister = () => {
     let resultat = construireEntetes();
     for(let unPermis of listePermis){
@@ -37,6 +38,7 @@ const lister = () => {
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
+//_____________________ TYPE DE PERMIS __________________________________________________________
 const listerPermisType = (listePermisType) => {
     let resultat = construireEntetes();
     for(let unPermis of listePermisType){
@@ -60,3 +62,48 @@ let typePermis = () => {
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
+
+//_____________________ TERRITOIRE DES PERMIS __________________________________________________________
+const listerPermisTerr = (listePermisTerr) => {
+    let resultat = construireEntetes();
+    for(let unPermis of listePermisTerr){
+        resultat += construireTR(unPermis);
+    }
+    resultat += "</tbody></table>";
+    document.getElementsByClassName('container')[0].innerHTML = resultat;
+}
+
+let terrPermis = () => {
+    let rep = `
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label for="annee" class="form-label">Territoire du permis recherché</label>
+            <input type="text" class="form-control" id="terr" name="terr" value="" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="button" onClick="listerParTerr();">Envoyer</button>
+        </div>
+    </form>
+`;
+ document.getElementsByClassName('container')[0].innerHTML = rep;
+}
+//_____________________ ÉCHÉENCE DE PERMIS _____________________________________________________________
+let demanderDates = () => {
+    let rep = `
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label for="annee" class="form-label">mois d'échéance recherché</label>
+            <input type="text" class="form-control" id="anneeRecherche" name="type" value="" required>
+        </div>
+        <div class="col-md-6">
+            <label for="annee" class="form-label">mois d'échéance recherché</label>
+            <input type="text" class="form-control" id="moisRecherche" name="type" value="" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="button" onClick="listerParDate();">Envoyer</button>
+        </div>
+    </form>
+`;
+ document.getElementsByClassName('container')[0].innerHTML = rep;
+}
+//_____________________ TOUS PERMIS, TRIÉS _____________________________________________________________

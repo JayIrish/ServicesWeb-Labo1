@@ -17,7 +17,7 @@ const chargerFichierJsonEnObjetJson = async (): Promise<Array<Permis>> => {
     return listePermis;
   }
 };
-
+//_____________________________________________________________________________________
 export const listePermisType = async (req: Request): Promise<string> => {
   let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
   let typeCherche = req.body.typeRecherche;
@@ -30,4 +30,18 @@ export const listePermisType = async (req: Request): Promise<string> => {
     }
   }
   return JSON.stringify(listePermisType);
+};
+//_____________________________________________________________________________________
+export const listePermisTerr = async (req: Request): Promise<string> => {
+  let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
+  let terrCherche = req.body.terrRecherche;
+
+  let listePermisTerr: Array<Permis> = [];
+
+  for (let unPermis of listePermis) {
+    if (unPermis.Gardien_Territoire_ex_villes == terrCherche) {
+      listePermisTerr.push(unPermis);
+    }
+  }
+  return JSON.stringify(listePermisTerr);
 };
