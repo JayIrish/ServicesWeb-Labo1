@@ -25,7 +25,6 @@ let listerParType = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisType) => {
-            //alert(reponse);
              listerPermisType(listePermisType);
         },
         fail: (e) => {
@@ -34,3 +33,21 @@ let listerParType = () => {
     });
 }
 
+let listerParTerr = () => {
+    let terr = document.getElementById('terr').value;
+
+    $.ajax({
+        url:"/terrPermis",
+        type:"POST",
+        data:{'terrRecherche': terr},
+        dataType:'json',  // json, xml, text
+        async: true, // false pour se  mettre en mode synchrone.
+        success: (listePermisTerr) => {
+            console.log(listePermisTerr);
+                listerPermisTerr(listePermisTerr);
+        },
+        fail: (e) => {
+            alert(`Gros probléme : ${e.message}`);
+        }
+    });
+}
