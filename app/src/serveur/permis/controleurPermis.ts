@@ -63,3 +63,19 @@ export const listePermisEcheance = async (req: Request): Promise<string> => {
   }
   return JSON.stringify(listePermisEcheance);
 };
+//________________________________________________________________________
+export const listeClasseeDesPermis = async (req: Request): Promise<string> => {
+  let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
+
+  listePermis.sort((a, b) => {
+    if (a.Animal_Type_de_permis < b.Animal_Type_de_permis) {
+      return -1;
+    }
+    if (a.Animal_Type_de_permis > b.Animal_Type_de_permis) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return JSON.stringify(listePermis);
+};

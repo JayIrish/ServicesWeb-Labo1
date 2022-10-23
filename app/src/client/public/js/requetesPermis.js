@@ -72,3 +72,19 @@ let listerParEcheance = () => {
         }
     });
 }
+
+let permisClassee = () => {
+    $.ajax({
+        url:"/permisClassee",
+        type:"POST",
+        data:{},
+        dataType:'json',  // json, xml, text
+        async: true, // false pour se  mettre en mode synchrone.
+        success: (listePermisClassee) => {
+                listerPermisClassee(listePermisClassee);
+        },
+        fail: (e) => {
+            alert(`Gros probléme : ${e.message}`);
+        }
+    });
+}

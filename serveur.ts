@@ -8,6 +8,7 @@ import path from "path";
 import { listePermisType } from "./app/src/serveur/permis/controleurPermis";
 import { listePermisTerr } from "./app/src/serveur/permis/controleurPermis";
 import { listePermisEcheance } from "./app/src/serveur/permis/controleurPermis";
+import { listeClasseeDesPermis } from "./app/src/serveur/permis/controleurPermis";
 
 // Création d'un serveur Node dont les requêtes entrantes
 // et sortantes sont gérées par express.
@@ -50,4 +51,9 @@ exp.post("/terrPermis", async (req: Request, res: Response) => {
 exp.post("/echeancePermis", async (req: Request, res: Response) => {
   let listeEcheancePermis = await listePermisEcheance(req);
   res.send(listeEcheancePermis);
+});
+
+exp.post("/permisClassee", async (req: Request, res: Response) => {
+  let listePermisClassee = await listeClasseeDesPermis(req);
+  res.send(listePermisClassee);
 });

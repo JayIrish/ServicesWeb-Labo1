@@ -116,3 +116,11 @@ let demanderDates = () => {
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
 //_____________________ TOUS PERMIS, TRIÉS _____________________________________________________________
+const listerPermisClassee = (listePermis) => {
+    let resultat = construireEntetes();
+    for(let unPermis of listePermis){
+        resultat += construireTR(unPermis);
+    }
+    resultat += "</tbody></table>";
+    document.getElementsByClassName('container')[0].innerHTML = resultat;
+}
