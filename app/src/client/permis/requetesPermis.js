@@ -25,7 +25,7 @@ let listerParType = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisType) => {
-             listerPermisType(listePermisType);
+            afficherPermisType(listePermisType);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -43,7 +43,7 @@ let listerParTerr = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisTerr) => {
-                listerPermisTerr(listePermisTerr);
+                afficherPermisTerr(listePermisTerr);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -65,7 +65,7 @@ let listerParEcheance = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisEcheance) => {
-                listerPermisEcheance(listePermisEcheance);
+            afficherPermisEcheance(listePermisEcheance);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -81,7 +81,7 @@ let permisClassee = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisClassee) => {
-                listerPermisClassee(listePermisClassee);
+            afficherPermisClassee(listePermisClassee);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);

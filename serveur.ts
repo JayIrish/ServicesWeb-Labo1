@@ -5,11 +5,7 @@ import bodyParser = require("body-parser");
 import http from "http";
 import path from "path";
 
-import { listePermisType } from "./app/src/serveur/permis/controleurPermis";
-import { listePermisTerr } from "./app/src/serveur/permis/controleurPermis";
-import { listePermisEcheance } from "./app/src/serveur/permis/controleurPermis";
-import { listeClasseeDesPermis } from "./app/src/serveur/permis/controleurPermis";
-
+import { listePermisType,listePermisTerr,listePermisEcheance,listeClasseeDesPermis } from "./app/src/serveur/permis/controleurPermis";
 // Création d'un serveur Node dont les requêtes entrantes
 // et sortantes sont gérées par express.
 

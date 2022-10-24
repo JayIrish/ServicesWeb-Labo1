@@ -29,7 +29,7 @@ const construireTR = (unPermis) =>{
 }
 
 //_____________________ TOUS PERMIS __________________________________________________________
-const lister = () => {
+const afficher = () => {
     let resultat = construireEntetes();
     for(let unPermis of listePermis){
         resultat += construireTR(unPermis);
@@ -39,7 +39,7 @@ const lister = () => {
 }
 
 //_____________________ TYPE DE PERMIS __________________________________________________________
-const listerPermisType = (listePermisType) => {
+const afficherPermisType = (listePermisType) => {
     let resultat = construireEntetes();
     for(let unPermis of listePermisType){
         resultat += construireTR(unPermis);
@@ -48,7 +48,7 @@ const listerPermisType = (listePermisType) => {
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
-let typePermis = () => {
+let demanderType = () => {
     let rep = `
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
@@ -64,7 +64,7 @@ let typePermis = () => {
 }
 
 //_____________________ TERRITOIRE DES PERMIS __________________________________________________________
-const listerPermisTerr = (listePermisTerr) => {
+const afficherPermisTerr = (listePermisTerr) => {
     let resultat = construireEntetes();
     for(let unPermis of listePermisTerr){
         resultat += construireTR(unPermis);
@@ -73,7 +73,7 @@ const listerPermisTerr = (listePermisTerr) => {
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
-let terrPermis = () => {
+let demanderTerr = () => {
     let rep = `
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
@@ -88,7 +88,7 @@ let terrPermis = () => {
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
 //_____________________ ÉCHÉENCE DE PERMIS _____________________________________________________________
-const listerPermisEcheance = (listePermisEcheance) => {
+const afficherPermisEcheance = (listePermisEcheance) => {
     let resultat = construireEntetes();
     for(let unPermis of listePermisEcheance){
         resultat += construireTR(unPermis);
@@ -116,7 +116,7 @@ let demanderDates = () => {
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
 //_____________________ TOUS PERMIS, TRIÉS _____________________________________________________________
-const listerPermisClassee = (listePermis) => {
+const afficherPermisClassee = (listePermis) => {
     let resultat = construireEntetes();
     for(let unPermis of listePermis){
         resultat += construireTR(unPermis);

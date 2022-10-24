@@ -17,7 +17,7 @@ const chargerFichierJsonEnObjetJson = async (): Promise<Array<Permis>> => {
     return listePermis;
   }
 };
-//_____________________________________________________________________________________
+
 export const listePermisType = async (req: Request): Promise<string> => {
   let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
   let typeCherche = req.body.typeRecherche;
@@ -31,7 +31,7 @@ export const listePermisType = async (req: Request): Promise<string> => {
   }
   return JSON.stringify(listePermisType);
 };
-//_____________________________________________________________________________________
+
 export const listePermisTerr = async (req: Request): Promise<string> => {
   let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
   let terrCherche = req.body.terrRecherche;
@@ -45,7 +45,7 @@ export const listePermisTerr = async (req: Request): Promise<string> => {
   }
   return JSON.stringify(listePermisTerr);
 };
-//_______________________________________________________________________________________
+
 export const listePermisEcheance = async (req: Request): Promise<string> => {
   let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
   let anneeCherche = req.body.anneeRecherche;
@@ -63,7 +63,7 @@ export const listePermisEcheance = async (req: Request): Promise<string> => {
   }
   return JSON.stringify(listePermisEcheance);
 };
-//________________________________________________________________________
+
 export const listeClasseeDesPermis = async (req: Request): Promise<string> => {
   let listePermis: Array<Permis> = await chargerFichierJsonEnObjetJson();
 
