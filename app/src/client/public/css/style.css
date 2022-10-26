@@ -6,6 +6,12 @@
 color: #ffffff !important;
 }
 
+.navbar-toggler {
+background-color: rgb(133, 135, 135);
+color: antiquewhite;
+
+}
+
 #formAnnee{
     display: none;
 }

@@ -94,6 +94,7 @@ const afficherPermisEcheance = (listePermisEcheance) => {
         resultat += construireTR(unPermis);
     }
     resultat += "</tbody></table>";
+    resultat += "</br> <h3>Si le tableau est vide, la date entrée est invalide et vous devez entrez une autre date.</h3>"
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
