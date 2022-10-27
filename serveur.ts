@@ -5,17 +5,18 @@ import bodyParser = require("body-parser");
 import http from "http";
 import path from "path";
 
-import { listePermisType } from "./app/src/serveur/permis/controleurPermis";
-import { listePermisTerr } from "./app/src/serveur/permis/controleurPermis";
-import { listePermisEcheance } from "./app/src/serveur/permis/controleurPermis";
-import { listeClasseeDesPermis } from "./app/src/serveur/permis/controleurPermis";
+import { listePermisType, listePermisTerr, listePermisEcheance, listeClasseeDesPermis } from "./app/src/serveur/permis/controleurPermis";
+
+
+
 
 // Création d'un serveur Node dont les requêtes entrantes
 // et sortantes sont gérées par express.
 
+
 const exp = express();
 const serveur = http.createServer(exp);
-const porte = 8383;
+const porte = 8389;
 serveur.listen(porte); // Famille des 8080-8888
 console.log(`\nServeur démarré sur le port ${porte}`);
 
