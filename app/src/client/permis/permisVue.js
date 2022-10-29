@@ -28,20 +28,49 @@ const construireTR = (unPermis) =>{
     return tr;
 }
 
-//_____________________ TOUS PERMIS __________________________________________________________
-const afficher = () => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermis){
-        resultat += construireTR(unPermis);
+const  listesPourSelect = async (categ) => {
+    let setTerrUnique = new Set();
+    let setTypeUnique = new Set();
+    let setAnneeUnique = new Set();
+    let setMoisUnique = new Set();
+    let setPermis = await chargerFichierJsonEnObjetJson();
+    for (let unPermis of setPermis){
+        let dateFin = (unPermis.Permis_Date_de_fin).split("-");
+        let annee = dateFin[0];
+        let mois = dateFin[1];
+
+        switch(categ){
+                case "Terr":
+                    setTerrUnique.add(unPermis.Gardien_Territoire_ex_villes);
+                    let listeTerrUnique = Array.from(setTerrUnique);
+                    return listeTerrUnique, categ;
+                case "Type": 
+                    setTypeUnique.add(unPermis.Animal_Type_de_permis);
+                    let listeTypeUnique = Array.from(setTypeUnique);
+                    return listeTypeUnique, categ;
+                case "Annee":
+                    setAnneeUnique.add(annee);
+                    let listeAnneeUnique = Array.from(setAnneeUnique);
+                    return listeAnneeUnique, categ;
+                case "Mois":
+                    setMoisUnique.add(mois);
+                    let listeMoisUnique = Array.from(setMoisUnique);
+                    return listeMoisUnique, categ;
+            }
     }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
-//_____________________ TYPE DE PERMIS __________________________________________________________
-const afficherPermisType = (listePermisType) => {
+const creeSelect = (liste, type) =>{
+    let select = `<select name="${type}" id="${type}" required>`
+    for(uneOption of liste){
+        select += `<option value="${uneOption}">${uneOption}</option>`
+    }
+    select = `</select>`
+}
+
+const afficher = (liste) => {
     let resultat = construireEntetes();
-    for(let unPermis of listePermisType){
+    for(let unPermis of liste){
         resultat += construireTR(unPermis);
     }
     resultat += "</tbody></table>";
@@ -49,11 +78,12 @@ const afficherPermisType = (listePermisType) => {
 }
 
 let demanderType = () => {
+    let select = creeSelect(listesPourSelect("Type"));
     let rep = `
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
             <label for="annee" class="form-label">Type de permis recherché</label>
-            <input type="text" class="form-control" id="type" name="type" value="" required>
+            ${select}
         </div>
         <div class="col-12">
             <button class="btn btn-primary" type="button" onClick="listerParType();">Envoyer</button>
@@ -61,16 +91,6 @@ let demanderType = () => {
     </form>
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
-}
-
-//_____________________ TERRITOIRE DES PERMIS __________________________________________________________
-const afficherPermisTerr = (listePermisTerr) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermisTerr){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
 let demanderTerr = () => {
@@ -86,15 +106,6 @@ let demanderTerr = () => {
     </form>
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
-}
-//_____________________ ÉCHÉENCE DE PERMIS _____________________________________________________________
-const afficherPermisEcheance = (listePermisEcheance) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermisEcheance){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
 let demanderDates = () => {
@@ -114,13 +125,4 @@ let demanderDates = () => {
     </form>
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
-}
-//_____________________ TOUS PERMIS, TRIÉS _____________________________________________________________
-const afficherPermisClassee = (listePermis) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermis){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
