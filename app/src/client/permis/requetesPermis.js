@@ -6,8 +6,7 @@ const chargerPermisJSON = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (reponse) => {
-            //alert(reponse);
-             listePermis = reponse;
+            listePermis = reponse;
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -25,7 +24,7 @@ let listerParType = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisType) => {
-            afficherPermisType(listePermisType);
+            afficher(listePermisType);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -43,7 +42,7 @@ let listerParTerr = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisTerr) => {
-                afficherPermisTerr(listePermisTerr);
+                afficher(listePermisTerr);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -65,7 +64,7 @@ let listerParEcheance = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisEcheance) => {
-            afficherPermisEcheance(listePermisEcheance);
+            afficher(listePermisEcheance);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);
@@ -81,7 +80,7 @@ let permisClassee = () => {
         dataType:'json',  // json, xml, text
         async: true, // false pour se  mettre en mode synchrone.
         success: (listePermisClassee) => {
-            afficherPermisClassee(listePermisClassee);
+            afficher(listePermisClassee);
         },
         fail: (e) => {
             alert(`Gros probléme : ${e.message}`);

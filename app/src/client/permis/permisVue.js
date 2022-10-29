@@ -28,20 +28,9 @@ const construireTR = (unPermis) =>{
     return tr;
 }
 
-//_____________________ TOUS PERMIS __________________________________________________________
-const afficher = () => {
+const afficher = (liste) => {
     let resultat = construireEntetes();
-    for(let unPermis of listePermis){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
-}
-
-//_____________________ TYPE DE PERMIS __________________________________________________________
-const afficherPermisType = (listePermisType) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermisType){
+    for(let unPermis of liste){
         resultat += construireTR(unPermis);
     }
     resultat += "</tbody></table>";
@@ -63,16 +52,6 @@ let demanderType = () => {
  document.getElementsByClassName('container')[0].innerHTML = rep;
 }
 
-//_____________________ TERRITOIRE DES PERMIS __________________________________________________________
-const afficherPermisTerr = (listePermisTerr) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermisTerr){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
-}
-
 let demanderTerr = () => {
     let rep = `
     <form class="row g-3 needs-validation" novalidate>
@@ -86,16 +65,6 @@ let demanderTerr = () => {
     </form>
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
-}
-//_____________________ ÉCHÉENCE DE PERMIS _____________________________________________________________
-const afficherPermisEcheance = (listePermisEcheance) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermisEcheance){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    resultat += "</br> <h3>Si le tableau est vide, la date entrée est invalide et vous devez entrez une autre date.</h3>"
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
 let demanderDates = () => {
@@ -115,13 +84,4 @@ let demanderDates = () => {
     </form>
 `;
  document.getElementsByClassName('container')[0].innerHTML = rep;
-}
-//_____________________ TOUS PERMIS, TRIÉS _____________________________________________________________
-const afficherPermisClassee = (listePermis) => {
-    let resultat = construireEntetes();
-    for(let unPermis of listePermis){
-        resultat += construireTR(unPermis);
-    }
-    resultat += "</tbody></table>";
-    document.getElementsByClassName('container')[0].innerHTML = resultat;
 }

@@ -3,6 +3,7 @@ import path from "path";
 import { open } from "node:fs/promises";
 import { Permis } from "./Permis";
 
+
 const chargerFichierJsonEnObjetJson = async (): Promise<Array<Permis>> => {
   //let auteur = req.body.auteur;
   let cheminFichier = path.join(__dirname, "../donnees/permis-animaux.json");
