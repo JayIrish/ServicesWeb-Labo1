@@ -33,7 +33,7 @@ const  listesPourSelect = async (categ) => {
     let setTypeUnique = new Set();
     let setAnneeUnique = new Set();
     let setMoisUnique = new Set();
-    let setPermis = await chargerFichierJsonEnObjetJson();
+    let setPermis = await chargerPermisJSON();
     for (let unPermis of setPermis){
         let dateFin = (unPermis.Permis_Date_de_fin).split("-");
         let annee = dateFin[0];
@@ -61,11 +61,11 @@ const  listesPourSelect = async (categ) => {
 }
 
 const creeSelect = (liste, type) =>{
-    let select = `<select name="${type}" id="${type}" required>`
+    let select = `<select name="${type}" id="${type}" required>`;
     for(uneOption of liste){
-        select += `<option value="${uneOption}">${uneOption}</option>`
+        select += `<option value="${uneOption}">${uneOption}</option>`;
     }
-    select = `</select>`
+    select = `</select>`;
 }
 
 const afficher = (liste) => {
