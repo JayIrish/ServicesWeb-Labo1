@@ -34,6 +34,7 @@ const afficher = (liste) => {
         resultat += construireTR(unPermis);
     }
     resultat += "</tbody></table>";
+    resultat += "</br> <h3>Si le tableau est vide, l'information entrée est invalide et vous devez essayer de nouveau.</h3>"
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
