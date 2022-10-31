@@ -29,12 +29,16 @@ const construireTR = (unPermis) =>{
 }
 
 const afficher = (liste) => {
+    i = 0;
     let resultat = construireEntetes();
     for(let unPermis of liste){
         resultat += construireTR(unPermis);
+        i++;
     }
     resultat += "</tbody></table>";
-    resultat += "</br> <h3>Si le tableau est vide, l'information entrée est invalide et vous devez essayer de nouveau.</h3>"
+    if( i == 0){
+        resultat += "</br> <h3>Si le tableau est vide, l'information entrée est invalide et vous devez essayer de nouveau.</h3>"
+    }
     document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
 
